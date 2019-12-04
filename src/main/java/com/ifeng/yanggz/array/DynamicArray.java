@@ -64,8 +64,8 @@ public class DynamicArray<T> {
             // 扩容为原来的两倍
             resize(2 * size);
         }
-        for(int i=size; i>=index; i--) {
-            data[i] = data[i-1];
+        for(int i=size-1; i>=index; i--) {
+            data[i+1] = data[i];
         }
         data[index] = obj;
         size++;
@@ -131,6 +131,10 @@ public class DynamicArray<T> {
         add(size, obj);
     }
 
+    public void print() {
+        System.out.println(this.toString());
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -156,5 +160,18 @@ public class DynamicArray<T> {
         if(index < 0 || index > this.size) {
             throw new IllegalArgumentException("Add failed! Required index > 0 and index <= size");
         }
+    }
+
+    public static void main(String[] args) {
+        DynamicArray array = new DynamicArray<Integer>(10);
+        array.add(0, 2);
+        array.add(1, 3);
+        array.add(2, 7);
+        array.add(3, 4);
+        array.print();
+        array.remove(2);
+        array.print();
+        array.remove(1);
+        array.print();
     }
 }
