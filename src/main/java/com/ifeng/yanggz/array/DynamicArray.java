@@ -41,15 +41,10 @@ public class DynamicArray<T> {
         return data[index];
     }
 
-    public void checkIndex(int index) {
-        if(index < 0 || index >= size) {
-            throw new IllegalArgumentException("index illegal! Require index >= 0 and index < size.");
-        }
-    }
     // 查询某个元素位置下标，未找到返回-1
     public int find(T obj) {
         for(int i=0; i<size; i++) {
-            if(data[i] == obj) {
+            if(data[i].equals(obj)) {
                 return i;
             }
         }
@@ -84,15 +79,10 @@ public class DynamicArray<T> {
         data = newData;
     }
 
-    public void checkIndexForAdd(int index) {
-        if(index < 0 || index > this.size) {
-            throw new IllegalArgumentException("Add failed! Required index > 0 and index <= size");
-        }
-    }
     // 判断某个元素是否存在
     public boolean exist(T obj) {
         for (int i=0; i<size; i++) {
-            if(data[i] == obj) {
+            if(data[i].equals(obj)) {
                 return true;
             }
         }
@@ -154,5 +144,17 @@ public class DynamicArray<T> {
         }
         stringBuilder.append("]");
         return stringBuilder.toString();
+    }
+
+    public void checkIndex(int index) {
+        if(index < 0 || index >= size) {
+            throw new IllegalArgumentException("index illegal! Require index >= 0 and index < size.");
+        }
+    }
+
+    public void checkIndexForAdd(int index) {
+        if(index < 0 || index > this.size) {
+            throw new IllegalArgumentException("Add failed! Required index > 0 and index <= size");
+        }
     }
 }
