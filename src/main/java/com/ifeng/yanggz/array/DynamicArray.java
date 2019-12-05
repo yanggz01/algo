@@ -161,17 +161,4 @@ public class DynamicArray<T> {
             throw new IllegalArgumentException("Add failed! Required index > 0 and index <= size");
         }
     }
-
-    public static void main(String[] args) {
-        DynamicArray array = new DynamicArray<Integer>(10);
-        array.add(0, 2);
-        array.add(1, 3);
-        array.add(2, 7);
-        array.add(3, 4);
-        array.print();
-        array.remove(2);
-        array.print();
-        array.remove(1);
-        array.print();
-    }
 }
