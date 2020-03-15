@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.stack;
+package com.ifeng.yanggz.day2.stack;
 
 /**
  * 模拟浏览器的前进、后退

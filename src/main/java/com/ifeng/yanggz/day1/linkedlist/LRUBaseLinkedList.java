@@ -1,6 +1,4 @@
-package com.ifeng.yanggz.linkedlist;
-
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+package com.ifeng.yanggz.day1.linkedlist;
 
 /**
  * 基于链表的缓存淘汰算法（LRU）

@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.linkedlist;
+package com.ifeng.yanggz.day1.linkedlist;
 
 /**
  * 1、单链表的增删查

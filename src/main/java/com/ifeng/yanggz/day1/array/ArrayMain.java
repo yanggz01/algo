@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.array;
+package com.ifeng.yanggz.day1.array;
 
 public class ArrayMain {
     public static void main(String[] args) {

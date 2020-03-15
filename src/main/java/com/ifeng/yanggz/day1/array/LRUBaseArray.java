@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.array;
+package com.ifeng.yanggz.day1.array;
 
 import java.security.InvalidParameterException;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.array;
+package com.ifeng.yanggz.day1.array;
 
 /**
  * 1、固定大小有序数组

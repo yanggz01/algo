@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.sorts;
+package com.ifeng.yanggz.day3.sorts;
 
 import java.util.Arrays;
 

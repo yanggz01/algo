@@ -1,6 +1,4 @@
-package com.ifeng.yanggz.queue;
-
-import com.ifeng.yanggz.array.DynamicArray;
+package com.ifeng.yanggz.day2.queue;
 
 /**
  * 动态数组队列

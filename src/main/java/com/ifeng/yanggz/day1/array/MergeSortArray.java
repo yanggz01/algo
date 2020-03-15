@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.array;
+package com.ifeng.yanggz.day1.array;
 /**
  * 合并两个有序数组
  * @Author yanggz

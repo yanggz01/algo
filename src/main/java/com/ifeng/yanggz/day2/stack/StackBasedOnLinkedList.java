@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.stack;
+package com.ifeng.yanggz.day2.stack;
 
 /**
  * 基于链表实现栈数据结构

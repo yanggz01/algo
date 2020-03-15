@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.array;
+package com.ifeng.yanggz.day1.array;
 
 /**
  * 数组，支持动态扩容

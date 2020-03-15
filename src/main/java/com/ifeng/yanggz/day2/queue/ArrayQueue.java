@@ -1,4 +1,4 @@
-package com.ifeng.yanggz.queue;
+package com.ifeng.yanggz.day2.queue;
 
 /**
  * 用数组实现的队列
