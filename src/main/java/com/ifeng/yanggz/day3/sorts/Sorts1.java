@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @Date 2020-01-06
  *
  */
-public class Sorts {
+public class Sorts1 {
 
     // 冒泡排序（往上浮）
     public static void bubbleSortUp(int[] a, int n) {
@@ -129,10 +129,11 @@ public class Sorts {
     }
 
 
+
     public static void main(String[] args) {
         int[] a = {2,1,6,4,3,7,11,10};
         System.out.println(Arrays.toString(a));
-        Sorts.shellSort(a, a.length);
+        Sorts1.bubbleSort2(a, a.length);
         System.out.println(Arrays.toString(a));
     }
 }
