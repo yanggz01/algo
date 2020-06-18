@@ -2,6 +2,8 @@ package com.ifeng.yanggz.day4;
 
 import com.ifeng.yanggz.day4.hashmap.HashTable;
 import com.ifeng.yanggz.day4.hashmap.LRUBaseHashTable;
+import com.ifeng.yanggz.day4.string.BF;
+import com.ifeng.yanggz.day4.string.Trie;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class Main {
         System.out.println(hashTable.get("aa"));
         System.out.println(hashTable.get("jj"));*/
 
-        LRUBaseHashTable<String, String> lruBaseHashTable = new LRUBaseHashTable<>(5);
+        /*LRUBaseHashTable<String, String> lruBaseHashTable = new LRUBaseHashTable<>(5);
         lruBaseHashTable.add("aa", "aa");
         lruBaseHashTable.add("bb", "bb");
         lruBaseHashTable.add("cc", "cc");
@@ -33,6 +35,22 @@ public class Main {
 
         lruBaseHashTable.printALL();
         lruBaseHashTable.add("gg", "gg");
-        lruBaseHashTable.printALL();
+        lruBaseHashTable.printALL();*/
+
+        /*String word1 = "hello";
+        String word2 = "yanggz";
+        String word3 = "lisi";
+        String word4 = "lisid";
+
+        Trie trie = new Trie();
+        trie.build(word1.toCharArray());
+        trie.build(word2.toCharArray());
+        trie.build(word3.toCharArray());
+
+        System.out.println(trie.find(word4.toCharArray()));*/
+
+        String mainStr = "hello word yanggz";
+        String modeStr = "yanggz";
+        System.out.println(BF.bf(mainStr, modeStr));
     }
 }
