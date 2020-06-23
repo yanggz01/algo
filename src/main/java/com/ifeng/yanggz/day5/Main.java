@@ -21,10 +21,15 @@ public class Main {
         binarySearchTree.insert(27);
         binarySearchTree.insert(55);
 
+        BinarySearchTree binarySearchTree1 = new BinarySearchTree();
+        binarySearchTree1.insert(13);
+        binarySearchTree1.insert(12);
+        binarySearchTree1.insert(15);
+
         //binarySearchTree.delete(18);
         //System.out.println(binarySearchTree.findPost(25).getData());
         //binarySearchTree.preOrderStack();
         //binarySearchTree.preOrder();
-        binarySearchTree.levelOrderQueue();
+        binarySearchTree.postOrderStack();
     }
 }

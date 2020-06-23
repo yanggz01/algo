@@ -202,7 +202,7 @@ public class BinarySearchTree {
     }
 
     public void preOrder() {
-        if(tree == null) {
+        if (tree == null) {
             return;
         }
         Node root = tree;
@@ -211,10 +211,10 @@ public class BinarySearchTree {
         while (!stack.isEmpty()) {
             Node p = stack.pop();
             System.out.print(p.data + " ");
-            if(p.right != null) {
+            if (p.right != null) {
                 stack.push(p.right);
             }
-            if(p.left != null) {
+            if (p.left != null) {
                 stack.push(p.left);
             }
         }
@@ -222,7 +222,7 @@ public class BinarySearchTree {
 
     // 二叉树前序遍历
     public void preOrderStack() {
-        if(tree == null) {
+        if (tree == null) {
             return;
         }
         Node p = tree;
@@ -237,9 +237,10 @@ public class BinarySearchTree {
             p = p.right;
         }
     }
+
     // 二叉树中序遍历
     public void inOrderStack() {
-        if(tree == null) {
+        if (tree == null) {
             return;
         }
         Node p = tree;
@@ -255,14 +256,45 @@ public class BinarySearchTree {
         }
     }
 
-    // 二叉树后续遍历
-    public void postOrderStack() {
 
+    // 二叉树后序遍历
+    public void postOrderStack() {
+        if(tree == null) {
+            return;
+        }
+        Node root = tree;
+        Map<Node, Boolean> map = new HashMap<>();
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node p = stack.peek();
+            if(p.left != null && !map.containsKey(p.left)) {
+                p = p.left;
+                while (p != null) {
+                    /*if(map.containsKey(p)) {
+                        break;
+                    } else {
+                        stack.push(p);
+                    }*/
+                    stack.push(p);
+                    p = p.left;
+                }
+                continue;
+            }
+            if(p.right != null && !map.containsKey(p.right)) {
+                stack.push(p.right);
+                continue;
+            }
+            Node t = stack.pop();
+            System.out.print(t.data + " ");
+            map.put(t, true);
+        }
     }
+
 
     // 二叉树按层遍历
     public void levelOrderQueue() {
-        if(tree == null) {
+        if (tree == null) {
             return;
         }
         Node root = tree;
@@ -271,10 +303,10 @@ public class BinarySearchTree {
         while (!queue.isEmpty()) {
             Node p = queue.poll();
             System.out.print(p.data + " ");
-            if(p.left != null) {
+            if (p.left != null) {
                 queue.add(p.left);
             }
-            if(p.right != null) {
+            if (p.right != null) {
                 queue.add(p.right);
             }
         }
