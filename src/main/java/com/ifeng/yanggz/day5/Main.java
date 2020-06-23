@@ -5,18 +5,26 @@ import com.ifeng.yanggz.day5.tree.BinarySearchTree;
 public class Main {
     public static void main(String[] args) {
         BinarySearchTree binarySearchTree = new BinarySearchTree();
-        binarySearchTree.insert(2);
-        binarySearchTree.insert(4);
-        binarySearchTree.insert(5);
-        binarySearchTree.insert(3);
-        binarySearchTree.insert(1);
-        binarySearchTree.insert(11);
+        binarySearchTree.insert(33);
+        binarySearchTree.insert(16);
+        binarySearchTree.insert(50);
+        binarySearchTree.insert(13);
+        binarySearchTree.insert(18);
+        binarySearchTree.insert(34);
+        binarySearchTree.insert(58);
+        binarySearchTree.insert(15);
+        binarySearchTree.insert(17);
+        binarySearchTree.insert(25);
+        binarySearchTree.insert(51);
+        binarySearchTree.insert(66);
+        binarySearchTree.insert(19);
+        binarySearchTree.insert(27);
+        binarySearchTree.insert(55);
 
-        System.out.println(binarySearchTree.findMax().getData());
-        System.out.println(binarySearchTree.findMin().getData());
-
-        binarySearchTree.delete(11);
-        System.out.println(binarySearchTree.findMax().getData());
-        System.out.println(binarySearchTree.find(3).getData());
+        //binarySearchTree.delete(18);
+        //System.out.println(binarySearchTree.findPost(25).getData());
+        //binarySearchTree.preOrderStack();
+        //binarySearchTree.preOrder();
+        binarySearchTree.levelOrderQueue();
     }
 }
