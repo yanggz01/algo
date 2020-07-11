@@ -1,6 +1,9 @@
 package com.ifeng.yanggz.day5;
 
+import com.ifeng.yanggz.day5.heap.Heap;
 import com.ifeng.yanggz.day5.tree.BinarySearchTree;
+
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,6 +33,13 @@ public class Main {
         //System.out.println(binarySearchTree.findPost(25).getData());
         //binarySearchTree.preOrderStack();
         //binarySearchTree.preOrder();
-        binarySearchTree.postOrderStack();
+        //binarySearchTree.postOrderStack();
+
+        int[] a = {0,7,5,19,8,4,1,20,13,16};
+        System.out.println(Arrays.toString(a));
+        //Heap.build(a, 9);
+        Heap.heapSort(a);
+        System.out.println(Arrays.toString(a));
+
     }
 }
