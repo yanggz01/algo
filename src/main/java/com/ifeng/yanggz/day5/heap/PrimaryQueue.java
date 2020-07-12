@@ -7,8 +7,8 @@ public class PrimaryQueue implements Queue<Integer> {
 
     private Heap heap;
 
-    public PrimaryQueue(Heap heap) {
-        this.heap = heap;
+    public PrimaryQueue(int capaticty) {
+        this.heap = new Heap(capaticty);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class PrimaryQueue implements Queue<Integer> {
 
     @Override
     public Integer dequeue() {
-        return heap.removeMax();
+        return heap.removeTop();
     }
 
     @Override

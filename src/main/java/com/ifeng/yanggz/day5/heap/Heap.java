@@ -79,21 +79,21 @@ public class Heap {
         count++;
         a[count] = data;
         int i = count;
-        while (i/2 > 0 && a[i] > a[i/2]) {
+        while (i/2 > 0 && a[i] < a[i/2]) {
             swap(a, i, i/2);
             i = i/2;
         }
     }
 
     // 删除堆顶节点
-    public int removeMax() {
+    public int removeTop() {
         if(count == 0) {
             return -1;
         }
         int max = a[1];
         a[1] = a[count];
         count--;
-        heapMax(a, count, 1);
+        heapMin(a, count, 1);
         return max;
     }
 
@@ -116,5 +116,15 @@ public class Heap {
     // 获取堆顶元素
     public int getMax() {
         return a[1];
+    }
+
+    // 获取堆中所有元素
+    public int[] getAllData() {
+        return a;
+    }
+
+    // 获取堆的容量
+    public int getCapacity() {
+        return n;
     }
 }
