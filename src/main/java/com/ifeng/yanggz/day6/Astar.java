@@ -5,19 +5,22 @@ import java.util.LinkedList;
 /**
  * 最短路径算法
  */
-public class Dijkstra {
+public class Astar {
 
     // 顶点个数
     private int v;
     // 邻接表
     private LinkedList<Edge>[] adj;
 
-    public Dijkstra(int v) {
+    private Vertex[] vertexes;
+
+    public Astar(int v) {
         this.v = v;
         this.adj = new LinkedList[v];
         for(int i=0; i<v; i++) {
             adj[i] = new LinkedList<>();
         }
+        this.vertexes = new Vertex[v];
     }
 
     /**
@@ -37,29 +40,24 @@ public class Dijkstra {
      * @param s
      * @param t
      */
-    public void dijkstra(int s, int t) {
+    public void aStar(int s, int t) {
         int[] predecessor = new int[v];
-        Vertex[] nodes = new Vertex[v];
-        for(int i=0; i<v; i++) {
-            nodes[i] = new Vertex(i, Integer.MAX_VALUE);
-        }
         PriorityQueue queue = new PriorityQueue(v);
         boolean[] inqueue = new boolean[v];
-        nodes[s].dist = 0;
-        queue.add(nodes[s]);
+        vertexes[s].dist = 0;
+        vertexes[s].f = 0;
+        queue.add(vertexes[s]);
         inqueue[s] = true;
         while (!queue.isEmpty()) {
 
             Vertex vertex = queue.poll();
-            if(vertex.id == t) {
-                break;
-            }
 
             for(int i=0; i<adj[vertex.id].size(); i++) {
                 Edge e = adj[vertex.id].get(i);
-                Vertex nextVertex = nodes[e.tid];
+                Vertex nextVertex = vertexes[e.tid];
                 if(vertex.dist + e.weight < nextVertex.dist) {
                     nextVertex.dist = vertex.dist + e.weight;
+                    nextVertex.f = nextVertex.dist + hManhattan(vertex, nextVertex);
                     predecessor[nextVertex.id] = vertex.id;
                     if(inqueue[nextVertex.id]) {
                         queue.update(nextVertex);
@@ -67,6 +65,11 @@ public class Dijkstra {
                         queue.add(nextVertex);
                         inqueue[nextVertex.id] = true;
                     }
+                }
+
+                if(nextVertex.id == t) {
+                    queue.clear();
+                    break;
                 }
             }
         }
@@ -109,11 +112,28 @@ public class Dijkstra {
         public int id;
         // 顶点到原点的距离
         public int dist;
+        // 曼哈顿距离
+        public int f;
 
-        public Vertex(int id, int dist) {
+        public int x;
+
+        public int y;
+
+        public Vertex(int id, int x, int y) {
             this.id = id;
-            this.dist = dist;
+            this.x = x;
+            this.y = y;
+            this.dist = Integer.MAX_VALUE;
+            this.y = Integer.MAX_VALUE;
         }
+    }
+
+    public void addVertex(int id, int x, int y) {
+        vertexes[id] = new Vertex(id, x, y);
+    }
+
+    public int hManhattan(Vertex t1, Vertex t2) {
+        return Math.abs(t1.x-t2.x) + Math.abs(t1.y-t2.y);
     }
 
     /**
@@ -151,10 +171,10 @@ public class Dijkstra {
         private void heapify(Vertex[] vertex, int count, int i) {
             while (true) {
                 int minPos = i;
-                if (2*i < count && vertex[i].dist>vertex[2*i].dist) {
+                if (2*i < count && vertex[i].f>vertex[2*i].f) {
                     minPos = 2*i;
                 }
-                if(2*i+1 < count && vertex[i].dist>vertex[2*i+1].dist) {
+                if(2*i+1 < count && vertex[i].f>vertex[2*i+1].f) {
                     minPos = 2*i+1;
                 }
                 if(minPos == i) {
@@ -174,7 +194,7 @@ public class Dijkstra {
             vertex[count] = node;
             index[node.id] = count;
             int i=count;
-            while (i/2>0 && vertex[i/2].dist > vertex[i].dist) {
+            while (i/2>0 && vertex[i/2].f > vertex[i].f) {
                 swap(vertex, index, i, i/2);
                 i = i/2;
             }
@@ -187,7 +207,7 @@ public class Dijkstra {
         public void update(Vertex node) {
             int i = index[node.id];
             vertex[i].dist = node.dist;
-            while (i/2 > 0 && vertex[i/2].dist > vertex[i].dist) {
+            while (i/2 > 0 && vertex[i/2].f > vertex[i].f) {
                 swap(vertex, index, i, i/2);
                 i = i/2;
             }
@@ -209,6 +229,10 @@ public class Dijkstra {
             vertex[i] = tmp;
             index[vertex[i].id] = j;
             index[vertex[j].id] = i;
+        }
+
+        public void clear() {
+            count = 0;
         }
     }
 }
