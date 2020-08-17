@@ -1,7 +1,10 @@
 package com.ifeng.yanggz.day7;
 
 /**
- * 计算莱温斯坦距离
+ * 计算莱文斯坦距离
+ *
+ * 动态规划
+ *
  */
 public class Lwst {
 

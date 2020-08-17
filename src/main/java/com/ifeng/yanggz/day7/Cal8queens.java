@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * 计算8皇后问题
+ *
+ * 回溯算法
  */
 public class Cal8queens {
 
