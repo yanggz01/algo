@@ -3,7 +3,10 @@ package com.ifeng.yanggz.day7;
 import java.util.Arrays;
 
 /**
- *分治算法计算一个数组的逆序对个数
+ *算一个数组的逆序对个数
+ *
+ * 分治算法计
+ *
  * @Author yanggz
  * @Date 2020-08-01
  */

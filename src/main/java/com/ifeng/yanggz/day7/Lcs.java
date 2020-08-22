@@ -3,6 +3,8 @@ package com.ifeng.yanggz.day7;
 /**
  * 最长公共子串
  *
+ * 动态规划
+ *
  */
 public class Lcs {
 
