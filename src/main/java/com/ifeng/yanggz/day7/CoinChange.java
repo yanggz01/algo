@@ -9,7 +9,12 @@ package com.ifeng.yanggz.day7;
 public class CoinChange {
 
     public static void main(String[] args) {
-        System.out.println(coinChange(9));
+        //System.out.println(coinChange(9));
+        int[] coins = {1,2,5,6};
+        int w = 11;
+        int r = coinChange2(coins, coins.length, w);
+        System.out.println();
+        System.out.println(r);
     }
 
     /**
@@ -53,5 +58,72 @@ public class CoinChange {
         }
 
         return m;
+    }
+
+    /**
+     * 状态转移表法2
+     *
+     * @param coin
+     * @param w
+     * @return
+     */
+    public static int coinChange2(int[] coin, int n, int w) {
+
+        int[][] states = new int[n][w+1];
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<=w; j++) {
+
+                if(j == 0) {
+                    states[i][j] = 0;
+                    continue;
+                }
+                if(i == 0) {
+                    states[i][j] = j/coin[i];
+                } else {
+                    if(j >= coin[i]) {
+                        states[i][j] = Math.min(states[i-1][j], 1+states[i][j-coin[i]]);
+                    } else {
+                        states[i][j] = states[i-1][j];
+                    }
+                }
+            }
+        }
+        // find value
+        findValue(coin, n, states, w);
+        return states[n-1][w];
+    }
+
+    /**
+     * 找出硬币的组合
+     *
+     * @param coin
+     * @param states
+     * @param w
+     */
+    private static void findValue(int[] coin, int n, int[][] states, int w) {
+        int i = n-1;
+        int j = w;
+        while (i > 0 && j > 0) {
+            if(states[i][j] != states[i-1][j]) {
+                break;
+            } else {
+                i--;
+            }
+        }
+        while (i >= 0 && j > 0) {
+            System.out.print(coin[i] + " ");
+            j = j-coin[i];
+            if(j <= 0) {
+                break;
+            }
+            if(i > 0) {
+                while (states[i][j] == states[i-1][j]) {
+                    i--;
+                    if(i == 0) {
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
