@@ -1,6 +1,5 @@
 package com.ifeng.yanggz.day7;
 
-import java.util.Arrays;
 
 /**
  * 计算8皇后问题
@@ -9,35 +8,34 @@ import java.util.Arrays;
  */
 public class Cal8queens {
 
-    public int[] result = new int[8];
-
-    private void cal8queens(int row) {
-        if(row == 8) {
-            print(result);
+    private void cal8queens(int[] a, int row) {
+        if(row == a.length) {
+            print(a);
             return;
         }
-        for(int column=0; column<8; column++) {
-            if(isOK(row, column)) {
-                result[row] = column;
-                cal8queens(row+1);
+        for(int column=0; column<a.length; column++) {
+            if(isOK(a, row, column)) {
+                a[row] = column;
+                cal8queens(a,row+1);
             }
         }
     }
 
-    public boolean isOK(int row, int column) {
+    public boolean isOK(int[] a, int row, int column) {
         int leftUp = column-1;
         int rightUp = column+1;
+
         for(int i=row-1; i>=0; i--) {
-            if(result[i] == column) {
+            if(a[i] == column) {
                 return false;
             }
             if(leftUp >= 0) {
-                if(result[i] == leftUp) {
+                if(a[i] == leftUp) {
                     return false;
                 }
             }
-            if(rightUp < 8) {
-                if(result[i] == rightUp) {
+            if(rightUp < a.length) {
+                if(a[i] == rightUp) {
                     return false;
                 }
             }
@@ -48,8 +46,8 @@ public class Cal8queens {
     }
 
     public void print(int[] result) {
-        for(int row=0; row<8; row++) {
-            for(int column=0; column<8; column++) {
+        for(int row=0; row<result.length; row++) {
+            for(int column=0; column<result.length; column++) {
                 if(result[row] == column) {
                     System.out.print("Q ");
                 } else {
@@ -58,12 +56,13 @@ public class Cal8queens {
             }
             System.out.println();
         }
-        System.out.println(Arrays.toString(result));
+        System.out.println();
     }
 
     public static void main(String[] args) {
         Cal8queens cal8queens = new Cal8queens();
-        cal8queens.cal8queens(0);
+        int[] a = new int[4];
+        cal8queens.cal8queens(a,0);
     }
 
 }

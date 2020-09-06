@@ -36,7 +36,7 @@ public class Double11Advance {
         }
 
         int j;
-        for(j=0; j<3*w+1; j++) {
+        for(j=w; j<3*w+1; j++) {
             if(states[n-1][j] == true) {
                 break;
             }

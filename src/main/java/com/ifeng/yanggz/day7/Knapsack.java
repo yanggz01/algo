@@ -62,13 +62,27 @@ public class Knapsack {
             }
         }
 
+        int r = 0;
         for(int k=w; k>=0; k--) {
             if(states[n-1][k] == true) {
-                return k;
+                r = k;
+                break;
             }
         }
 
-        return 0;
+        int j = r;
+        for(int i=n-1; i>0; i--) {
+            if(j-items[i] >=0 && states[i-1][j-items[i]]==true) {
+                System.out.print(items[i] + " ");
+                j = j-items[i];
+            }
+        }
+
+        if(j > 0) {
+            System.out.println(items[0]);
+        }
+
+        return r;
     }
 
 
