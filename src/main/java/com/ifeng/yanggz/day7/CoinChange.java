@@ -10,7 +10,7 @@ public class CoinChange {
 
     public static void main(String[] args) {
         //System.out.println(coinChange(9));
-        int[] coins = {1,2,5,6};
+        int[] coins = {1,3,5,9};
         int w = 11;
         int r = coinChange2(coins, coins.length, w);
         System.out.println();
@@ -41,7 +41,7 @@ public class CoinChange {
         for(int i=1; i<m; i++) {
             for(int j=1; j<=m; j++) {
                 if(states[i-1][j] = true) {
-                    if(j+5 <=m) {
+                    if(j+5<=m) {
                         states[i][j+5] = true;
                     }
                     if(j+3<=m) {
@@ -89,12 +89,32 @@ public class CoinChange {
             }
         }
         // find value
-        findValue(coin, n, states, w);
+        findValue2(coin, n, states, w);
         return states[n-1][w];
     }
 
     /**
-     * 找出硬币的组合
+     * 找出硬币组合V2
+     *
+     * @param coin
+     * @param n
+     * @param states
+     * @param w
+     */
+    public static void findValue2(int[] coin, int n, int[][] states, int w) {
+
+        for(int i=n-1,j=w; i>=0 && j>0;) {
+            if(states[i][j] != states[i-1][j]) {
+                System.out.print(coin[i] + " ");
+                j = j-coin[i];
+            } else {
+                i--;
+            }
+        }
+    }
+
+    /**
+     * 找出硬币的组合V1
      *
      * @param coin
      * @param states

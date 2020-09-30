@@ -12,6 +12,10 @@ public class BinarySearchTree {
 
     private Node tree;
 
+    public Node getTree() {
+        return tree;
+    }
+
     // 查找
     public Node find(int data) {
         if (tree == null) {
@@ -81,7 +85,7 @@ public class BinarySearchTree {
             }
             p.data = minP.data;
             p = minP;
-            pp = minPP;// 接下来删除p
+            pp = minPP;// 接下来删除minP
         }
 
         // 找出p的child
@@ -172,7 +176,7 @@ public class BinarySearchTree {
         }
         Node p = tree;
         Node parent;
-        Node lastLeftP = null;
+        Node lastLeftP = null;// 最后一次左拐父节点
         while (p != null) {
             parent = p;
             if (p.data > data) {
@@ -201,6 +205,38 @@ public class BinarySearchTree {
         return null;
     }
 
+    // 前序遍历递归
+    public void preOrderRecur(Node tree) {
+        if(tree == null) {
+            return;
+        }
+        Node p = tree;
+        System.out.print(p.data + " ");
+        preOrderRecur(p.left);
+        preOrderRecur(p.right);
+    }
+    // 中序遍历递归
+    public void inOrderRecur(Node tree) {
+        if(tree == null) {
+            return;
+        }
+        Node p = tree;
+        inOrderRecur(p.left);
+        System.out.print(p.data+" ");
+        inOrderRecur(p.right);
+    }
+    // 后续遍历递归
+    public void postOrderRecur(Node tree) {
+        if(tree == null) {
+            return;
+        }
+        Node p = tree;
+        postOrderRecur(p.left);
+        postOrderRecur(p.right);
+        System.out.print(p.data + " ");
+    }
+
+    // 二叉树前序遍历
     public void preOrder() {
         if (tree == null) {
             return;
@@ -271,11 +307,6 @@ public class BinarySearchTree {
             if(p.left != null && !map.containsKey(p.left)) {
                 p = p.left;
                 while (p != null) {
-                    /*if(map.containsKey(p)) {
-                        break;
-                    } else {
-                        stack.push(p);
-                    }*/
                     stack.push(p);
                     p = p.left;
                 }
@@ -327,5 +358,14 @@ public class BinarySearchTree {
         public int getData() {
             return data;
         }
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        binarySearchTree.insert(3);
+        binarySearchTree.insert(2);
+        binarySearchTree.insert(4);
+        //binarySearchTree.insert(1);
+        binarySearchTree.levelOrderQueue();
     }
 }

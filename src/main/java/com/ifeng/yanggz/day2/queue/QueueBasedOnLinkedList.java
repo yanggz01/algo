@@ -22,7 +22,6 @@ public class QueueBasedOnLinkedList {
             tail.next = new Node(value, null);
             tail = tail.next;
         }
-
     }
     // 出队
     public String dequeue() {

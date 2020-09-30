@@ -12,7 +12,7 @@ public class Lis {
 
     public static void main(String[] args) {
         int[] a = {10,9,2,5,3,7,101,1,18};
-        int r = lis2(a, a.length);
+        int r = lis(a, a.length);
         System.out.println(r);
     }
 

@@ -31,6 +31,7 @@ public class SinglyLinkedList {
         }
         return p;
     }
+
     // 按索引查找节点
     public Node findByIndex(int index) {
         Node p = head;
@@ -41,11 +42,13 @@ public class SinglyLinkedList {
         }
         return p;
     }
+
     // 无头节点按值插入
     public void insertToHead(int value) {
         Node node = new Node(value, null);
         insertToHead(node);
     }
+
     // 无头节点按节点插入
     public void insertToHead(Node node) {
         if(head == null) {
@@ -55,6 +58,7 @@ public class SinglyLinkedList {
             head = node;
         }
     }
+
     // 插入尾部（按值）
     public void insertTail(int value) {
         Node newNode = new Node(value, null);
@@ -68,11 +72,13 @@ public class SinglyLinkedList {
             p.next = newNode;
         }
     }
+
     // 插入某个节点后面（按值插入）
     public void insertNodeAfter(Node p, int value) {
         Node newNode = new Node(value, null);
         insertNodeAfter(p, newNode);
     }
+
     // 插入某个节点后面（按节点插入）
     public void insertNodeAfter(Node p, Node newNode) {
         if(p == null) {
@@ -123,6 +129,7 @@ public class SinglyLinkedList {
         }
         p.next = node.next;
     }
+
     // 按值删除
     public void deleteByValue(int value) {
        if(head == null) {
@@ -138,7 +145,7 @@ public class SinglyLinkedList {
        if(p == null) {
            return;
        }
-       if(q == null) {
+       if(q == null) {// 删除的是头节点
            head = head.next;
        } else {
            q.next = q.next.next;
@@ -157,6 +164,7 @@ public class SinglyLinkedList {
            pNode = pNode.next;
        }*/
     }
+
     // 打印链表
     public void printAll() {
         Node p = head;
@@ -166,6 +174,7 @@ public class SinglyLinkedList {
         }
         System.out.println();
     }
+
     // 判断两个链表是否相同
     public boolean TFResult(Node left, Node right) {
         boolean flag = true;
@@ -193,10 +202,11 @@ public class SinglyLinkedList {
         }
         Node p = head;
         Node q = head;
+
         if(q.next == null) {
             return true;
         }
-        while (p.next != null && q.next.next != null) {
+        while (q.next != null && q.next.next != null) {
             p = p.next;
             q = q.next.next;
         }

@@ -29,11 +29,11 @@ public class LinkedListAlgo {
         if(list == null) return false;
 
         Node slow = list;
-        Node fast = list.next;
+        Node fast = list;
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
-            if(fast == null) {
+            if(fast == slow) {
                 return true;
             }
         }
@@ -46,6 +46,8 @@ public class LinkedListAlgo {
         Node p = la;
         Node q = lb;
         Node head;
+
+        // 选头部
         if(p.data > q.data) {
             head = q;
             q = q.next;
@@ -53,7 +55,7 @@ public class LinkedListAlgo {
             head = p.next;
             p = p.next;
         }
-
+        // 合并后链表指针r
         Node r = head;
         while (q != null && p != null) {
             if(p.data > q.data) {
@@ -65,7 +67,7 @@ public class LinkedListAlgo {
             }
             r = r.next;
         }
-
+        // 接尾部
         if(q != null) {
             r.next = q;
         }

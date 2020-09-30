@@ -6,6 +6,7 @@ package com.ifeng.yanggz.day2.queue;
  * @Date 2020-01-03
  */
 public class CircularQueue {
+
     private String[] items;
     private int n;
     private int head = 0;

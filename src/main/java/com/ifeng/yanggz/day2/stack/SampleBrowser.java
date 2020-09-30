@@ -79,16 +79,19 @@ public class SampleBrowser {
      * 基于链表实现的栈
      */
     public static class LinkedBasedStack{
+
         private Node top;
         private int size;
 
         static Node createNode(String data, Node next) {
             return new Node(data, next);
         }
+
         // 获取栈大小
         public int size() {
             return size;
         }
+
         // 压栈
         public void push(String data) {
             if(top == null) {
@@ -99,6 +102,7 @@ public class SampleBrowser {
             }
             size++;
         }
+
         // 出栈
         public String pop() {
             if(top == null) {
@@ -111,11 +115,13 @@ public class SampleBrowser {
             }
             return data;
         }
+
         // 清空栈
         public void clear() {
             top = null;
             size = 0;
         }
+
         // 打印栈
         public void printAll() {
             Node node = top;

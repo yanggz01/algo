@@ -8,7 +8,7 @@ package com.ifeng.yanggz.day7;
  */
 public class Knapsack2 {
 
-    public int knapsack2(int[] weight, int[] value, int n, int w) {
+    public static int knapsack2(int[] weight, int[] value, int n, int w) {
         int[][] states = new int[n][w+1];
         for(int i=0; i<n; i++) {
             for(int j=0; j<=w; j++) {
@@ -38,12 +38,20 @@ public class Knapsack2 {
         }
 
         int maxValue = -1;
-        for(int j=0; j<=w; j++) {
+        int j;
+        for(j=0; j<=w; j++) {
             if(states[n-1][j] > maxValue) {
                 maxValue = states[n-1][j];
             }
         }
 
         return maxValue;
+    }
+
+    public static void main(String[] args) {
+        int[] weight = {3,5,7,12,4};
+        int[] value = {2,6,9,3,11};
+        int maxValue = knapsack2(weight, value, 5, 25);
+        System.out.println(maxValue);
     }
 }

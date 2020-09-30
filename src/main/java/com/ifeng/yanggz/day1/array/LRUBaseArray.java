@@ -14,6 +14,7 @@ import java.util.Map;
  * 3、不支持null的缓存
  */
 public class LRUBaseArray<T> {
+
     private static final int DEFAULT_CAPACITY = (1 << 3);
 
     private T[] value;

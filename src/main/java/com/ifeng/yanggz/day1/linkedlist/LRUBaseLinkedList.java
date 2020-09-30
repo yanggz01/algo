@@ -19,13 +19,13 @@ public class LRUBaseLinkedList<T> {
     public LRUBaseLinkedList() {
         this.capacity = DEFAULT_CAPACITY;
         this.length = 0;
-        this.headNode = new SNode<T>();
+        this.headNode = new SNode<>();
     }
 
     public LRUBaseLinkedList(int capacity) {
         this.capacity = capacity;
         this.length = 0;
-        this.headNode = new SNode<T>();
+        this.headNode = new SNode<>();
     }
 
     public void add(T data) {

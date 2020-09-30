@@ -28,7 +28,7 @@ public class Heap {
         }
     }
 
-    // 大顶堆化
+    // 大顶堆化，向下堆化
     public static void heapMax(int[] a, int n, int i) {
         while (true) {
             int maxPos = i;
@@ -46,7 +46,7 @@ public class Heap {
         }
     }
 
-    // 小顶堆化
+    // 小顶堆化，向下堆化
     public static void heapMin(int[] a, int n, int i) {
         while (true) {
             int minPos = i;
@@ -71,7 +71,7 @@ public class Heap {
         a[j] = tmp;
     }
 
-    // 插入节点
+    // 插入节点,向上堆化
     public void insert(int data) {
         if(count >= n) {
             return;// 堆满了

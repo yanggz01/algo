@@ -22,7 +22,7 @@ public class Sorts3 {
     }
 
     /**
-     * 计数排序
+     * 基数排序
      * @param a
      * @param n
      */

@@ -26,15 +26,19 @@ public class MergeSortArray {
 
         int j=0,k=0,m=0;
         int i = 0;
-        do {
+
+        while (j<arr1.length || k<arr2.length || m<arr3.length) {
+
             int tmpMin = pq.dequeue();
             arr[i++] = tmpMin;
+
             if(i==arr.length) {
                 break;
             }
 
             // 找到tmpMax对应的数组
             int [] a = tmp.get(tmpMin);
+
             if(a == arr1 && j < arr1.length-1) {
                 j++;
                 pq.inqueue(a[j]);
@@ -53,7 +57,7 @@ public class MergeSortArray {
                 tmp.put(a[m], a);
                 continue;
             }
-        } while (j<arr1.length || k<arr2.length || m<arr3.length);
+        }
 
         System.out.println(Arrays.toString(arr));
     }
