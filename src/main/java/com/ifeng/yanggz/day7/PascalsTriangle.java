@@ -3,6 +3,8 @@ package com.ifeng.yanggz.day7;
 /**
  * 杨辉三角动态规划问题
  *
+ * 从最高层转移到最底层的最短路径长度是多少
+ *
  */
 public class PascalsTriangle {
 

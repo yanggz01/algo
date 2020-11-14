@@ -3,6 +3,8 @@ package com.ifeng.yanggz.day7;
 /**
  * 计算莱文斯坦距离
  *
+ * 求a、b两个字符串的最短编辑距离
+ *
  * 动态规划
  *
  */

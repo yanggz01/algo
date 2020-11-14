@@ -3,7 +3,7 @@ package com.ifeng.yanggz.day7;
 import java.util.Arrays;
 
 /**
- * 最长递增子序列
+ * 求一个数组的最长递增子序列
  *
  * 动态规划
  *
